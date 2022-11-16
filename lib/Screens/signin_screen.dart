@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/Screens/home_screen.dart';
+import 'package:myapp/Screens/main_food_page.dart';
 import 'package:myapp/Screens/reset_password.dart';
 import 'package:myapp/Screens/signup_screen.dart';
 import 'package:myapp/utils/color_utils.dart';
@@ -48,7 +49,7 @@ class _SignInScreenState extends State<SignInScreen> {
               forgetPassword(context),
               firebaseButton(context, "Sign in",() {
                 FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailTextController.text, password: _passwordTextController.text).then((value){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => MainFoodPage()));
                 });
               }),
               signUpOption()
