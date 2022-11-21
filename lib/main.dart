@@ -1,14 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/Screens/signin_screen.dart';
+import 'package:myapp/pages/Screens/signin_screen.dart';
 import 'package:postgres/postgres.dart';
 
   void main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
-    runApp(const MyApp());
     //Database connection variable (FINALLY!)
-    /*final databaseConn = PostgreSQLConnection(
+    final databaseConn = PostgreSQLConnection(
       'ec2-52-1-17-228.compute-1.amazonaws.com',
       5432,
       'd41mpmk9818d6f',
@@ -17,14 +16,15 @@ import 'package:postgres/postgres.dart';
       useSSL: true, //needed or else the connection wont work
   );
   await databaseConn.open(); //to open the database
-  print('Connected to Postgres database..'); //just to test, can be deleted later
+  print('Connected to Postgres database..');//just to test, can be deleted later
+    runApp(const MyApp());
 
 //example query of inserting into a table
 
 // Be careful when typing the name of the tables, first it's case sensitive, also for the tables that's created using
 // pgAdmin you have to put it in between "" (idk why it's so dumb and it took me hours to figure it out) or else it wouldn't work.
 // However, for tables that's created from the code in here you can just type the name of the table directly (Again idk whyyyyy :c)
- */
+
   /*await databaseConn.query('''INSERT INTO "Users" ("ID","FName","Email","Password")
       VALUES ('3','Inserted From Flutter', 'Testing@gmail.com','1111')''');
   var results = await databaseConn.query('''Select * FROM "Users"''');
@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      debugShowCheckedModeBanner: false,
     title: 'UTMFood',
     theme:  ThemeData(
     primarySwatch: Colors.blue,
