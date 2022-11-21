@@ -1,17 +1,22 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/Screens/home_screen.dart';
-import 'package:myapp/Screens/reset_password.dart';
-import 'package:myapp/Screens/signup_screen.dart';
+import 'package:myapp/pages/Screens/home_screen.dart';
+import 'package:myapp/pages/Screens/pending_verification.dart';
+import 'package:myapp/pages/Screens/reset_password.dart';
+import 'package:myapp/pages/Screens/signup_screen.dart';
 import 'package:myapp/utils/color_utils.dart';
-import 'package:myapp/reusable_widgets.dart';
+import 'package:myapp/utils/reusable_widgets.dart';
+import 'package:myapp/main.dart';
+import 'package:postgres/postgres.dart';
 
+//Draft Unfinished
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
+
 
 class _SignInScreenState extends State<SignInScreen> {
   TextEditingController _passwordTextController = TextEditingController();
@@ -46,10 +51,20 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 5,
               ),
               forgetPassword(context),
+              const SizedBox(
+                height: 20,
+              ),
               firebaseButton(context, "Sign in",() {
-                FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailTextController.text, password: _passwordTextController.text).then((value){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                });
+                try{
+                   FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailTextController.text,
+                      password: _passwordTextController.text).then((value){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                  });
+                } on FirebaseAuthException catch (e){
+                  print("12345");
+                  print(e.message);
+                }
+
               }),
               signUpOption()
     ],
@@ -69,7 +84,7 @@ class _SignInScreenState extends State<SignInScreen> {
     GestureDetector(
       onTap: () {
         Navigator.push(context,
-        MaterialPageRoute(builder: (context) => SignUpScreen()));
+        MaterialPageRoute(builder: (context) => PendingVerification())); //change PendingVerification to SignUpScreen
     },
     child: const Text(
       "Sign Up",
