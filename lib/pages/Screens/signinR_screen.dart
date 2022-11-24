@@ -3,22 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:myapp/pages/Screens/home_screen.dart';
 import 'package:myapp/pages/Screens/pending_verification.dart';
 import 'package:myapp/pages/Screens/reset_password.dart';
+import 'package:myapp/pages/Screens/signupR_screen.dart';
 import 'package:myapp/pages/Screens/signup_screen.dart';
 import 'package:myapp/utils/color_utils.dart';
 import 'package:myapp/utils/reusable_widgets.dart';
 import 'package:myapp/main.dart';
 import 'package:postgres/postgres.dart';
+import 'package:myapp/pages/Screens/signin_screen.dart';
+
 
 //Draft Unfinished
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class SignInRScreen extends StatefulWidget {
+  const SignInRScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignInRScreen> createState() => _SignInRScreenState();
 }
 
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInRScreenState extends State<SignInRScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   @override
@@ -66,7 +69,11 @@ class _SignInScreenState extends State<SignInScreen> {
                 }
 
               }),
-              signUpOption()
+              signUpOption(),
+              const SizedBox(
+                height: 10,
+              ),
+              normalUser()
     ],
     ),
     ),
@@ -84,7 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
     GestureDetector(
       onTap: () {
         Navigator.push(context,
-        MaterialPageRoute(builder: (context) => PendingVerification())); //change PendingVerification to SignUpScreen
+        MaterialPageRoute(builder: (context) => SignUpRScreen())); //change PendingVerification to SignUpScreen
     },
     child: const Text(
       "Sign Up",
@@ -94,7 +101,25 @@ class _SignInScreenState extends State<SignInScreen> {
     ],
     );
   }
-
+  Row normalUser() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Normal User?",
+            style: TextStyle(color: Colors.white70)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SignInScreen()));
+          },
+          child: const Text(
+            "Press here!",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
+    );
+  }
   Widget forgetPassword(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
