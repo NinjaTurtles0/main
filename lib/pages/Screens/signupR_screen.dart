@@ -22,7 +22,7 @@ class _SignUpRScreenState extends State<SignUpRScreen> {
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _userNameTextController = TextEditingController();
   TextEditingController _arkedName = TextEditingController();
-  TextEditingController _arkedCode = TextEditingController();
+  int arkedCode = 0;
   //Database variable
   dbEntity databaseConn = new dbEntity('ec2-52-1-17-228.compute-1.amazonaws.com'
       ,5432,
@@ -81,32 +81,25 @@ class _SignUpRScreenState extends State<SignUpRScreen> {
                     String usernameTemp = _userNameTextController.text;
                     String emailTemp = _emailTextController.text;
                     String passTemp = _passwordTextController.text;
-                    /*var counterTemp = databaseConn.query('''SELECT COUNT(*) FROM "Restaurants"
-                                      ''');
-                    print(counterTemp);*/ //Testing
-                    // Error : I/flutter ( 7207): Instance of 'Future<int>'
-                    Future<int> counterTemp = databaseConn.getCount('''"Restaurants"'''); //trying to get count of rows for index
-                    print(counterTemp); //for testing
-                    print("koko wawa kokowawa"); //for testing
+                    String arkedTemp = _arkedName.text;
 
-                    /*databaseConn.query('''INSERT INTO "Restaurants" ("ID","Name","Email","Password","ArkedID")
-                    VALUES ('1',_userNameTextController.text,_emailTextController.text,_passwordTextController.text,1)''');*/
-
-
-                    //,substitutionValues:{ "username":_userNameTextController.text,
-                     //"email":_emailTextController.text,
-                     //"password"_passwordTextController.text''');
+                    if(arkedTemp == "Meranti")
+                      {
+                        arkedCode = 1;
+                      }
+                    else if(arkedTemp == "Cengal")
+                      {
+                        arkedCode = 2;
+                      }
+                    else
+                      {
+                        print("Invalid Arked");
+                      }
                     FirebaseAuth.instance.createUserWithEmailAndPassword(
                         email: _emailTextController.text,
                         password: _passwordTextController.text)
                         .then((value) {
-                          //Insert data into database
-                          databaseConn.query('''INSERT INTO "Restaurants" ("ID","Name","Email","Password","ArkedID")
-                          VALUES ('7','$usernameTemp','$emailTemp','$passTemp',3)'''); //index and arked needs to be variables
-                          print(
-                            'Account Created Successfully!'
-                          );
-                          print("Created New Account");
+                          databaseConn.insertRestaurant(usernameTemp,emailTemp,passTemp,arkedCode);
                       Navigator.push(context,
                           MaterialPageRoute(builder:(context)=> HomeScreen()));
                     }).onError((error, stackTrace) {
@@ -152,9 +145,8 @@ class dbEntity {
 
     await databaseConn.query(query);
   }
-
-  Future<int> getCount(String table) async {
-    int count = 0;
+  Future<void> insertRestaurant(String nameR, String emailR, String passR, int arkedCode ) async {
+    int count = 0; //because of null saftey c:
     //database connection
     final databaseConn = PostgreSQLConnection(
       'ec2-52-1-17-228.compute-1.amazonaws.com',
@@ -165,10 +157,11 @@ class dbEntity {
       useSSL: true, //needed or else the connection wont work
     );
     await databaseConn.open();
-    //PostgreSQLResult x = await databaseConn.query(''' ''');
-    PostgreSQLResult x = await databaseConn.query('''SELECT COUNT (*) from
-        $table''');
-    count = x.affectedRowCount;
-    return count;
+    PostgreSQLResult x = await databaseConn.query('''SELECT * from
+        "Restaurants"''');
+    count = await x.affectedRowCount;
+    count = count + 2;
+    databaseConn.query('''INSERT INTO "Restaurants" ("ID","Name","Email","Password","ArkedID")
+                          VALUES ('$count','$nameR','$emailR','$passR','$arkedCode')''');
   }
 }

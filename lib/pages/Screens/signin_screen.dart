@@ -4,6 +4,7 @@ import 'package:myapp/pages/Screens/home_screen.dart';
 import 'package:myapp/pages/Screens/main_food_page.dart';
 import 'package:myapp/pages/Screens/pending_verification.dart';
 import 'package:myapp/pages/Screens/reset_password.dart';
+import 'package:myapp/pages/Screens/signinR_screen.dart';
 import 'package:myapp/pages/Screens/signupR_screen.dart';
 import 'package:myapp/pages/Screens/signup_screen.dart';
 import 'package:myapp/utils/color_utils.dart';
@@ -65,7 +66,11 @@ class _SignInScreenState extends State<SignInScreen> {
                 }
 
               }),
-              signUpOption()
+              signUpOption(),
+              const SizedBox(
+                height: 10,
+              ),
+              restaurantOwner()
     ],
     ),
     ),
@@ -91,6 +96,26 @@ class _SignInScreenState extends State<SignInScreen> {
     ),
     )
     ],
+    );
+  }
+
+  Row restaurantOwner() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Restaurant Owner?",
+            style: TextStyle(color: Colors.white70)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SignInRScreen()));
+          },
+          child: const Text(
+            "Press here!",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
     );
   }
 
