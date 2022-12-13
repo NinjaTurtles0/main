@@ -1,4 +1,4 @@
-import  'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../utils/dimensions.dart';
 
@@ -7,11 +7,13 @@ class Bigtext extends StatelessWidget {
   final String text;
   double size;
   TextOverflow overFlow;
-  Bigtext({Key? key, this.color= const Color(0xFF212121),
-    required this.text,
-    this.size=0,
-    this.overFlow=TextOverflow.ellipsis
-  }) : super(key: key);
+  Bigtext(
+      {Key? key,
+      this.color = const Color(0xFF212121),
+      required this.text,
+      this.size = 0,
+      this.overFlow = TextOverflow.ellipsis})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +23,9 @@ class Bigtext extends StatelessWidget {
       overflow: overFlow,
       style: TextStyle(
           fontFamily: 'Roboto',
-          color:color,
-          fontSize: size==0?Dimensions.font20:size,
-          fontWeight: FontWeight.w400
-      ),
+          color: color,
+          fontSize: size == 0 ? Dimensions.font20 : size,
+          fontWeight: FontWeight.w400),
     );
   }
 }
