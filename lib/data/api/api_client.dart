@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:myapp/utils/app_constants.dart';
+import 'package:utm/utils/app_constants.dart';
 
 class ApiClient extends GetConnect implements GetxService {
   late String token;

@@ -41,7 +41,8 @@ class _Rating extends State<Rating> {
         Row(
           children: stars,
         ),
-        TextButton( //changed flat button to text button
+        TextButton(
+          //changed flat button to text button
           child: Text("Clear", style: TextStyle(color: Colors.blue)),
           onPressed: () {
             setState(() {
