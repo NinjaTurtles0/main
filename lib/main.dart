@@ -1,7 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:myapp/pages/Screens/signin_screen.dart';
 import 'package:postgres/postgres.dart';
+import 'package:myapp/controllers/popular_product_controller.dart';
+import 'package:myapp/pages/Screens/main_food_page.dart';
+import 'package:myapp/data/repository/recommended_product_repo.dart';
+import 'package:myapp/controllers/recommended_product_controller.dart';
+import 'package:myapp/routes/route_helper.dart';
+import 'package:myapp/helper/dependencies.dart' as dep;
+
 
   void main() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +25,7 @@ import 'package:postgres/postgres.dart';
   );
   await databaseConn.open(); //to open the database
   print('Connected to Postgres database..');//just to test, can be deleted later
+    await dep.init();
     runApp(const MyApp());
 
 //example query of inserting into a table
@@ -47,13 +56,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    Get.find<PopularProductController>().getPopularProductList();
+    Get.find<RecommendedProductController>().getRecommendedProductList();
+
+    return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
     title: 'UTMFood',
     theme:  ThemeData(
     primarySwatch: Colors.blue,
     ),
-      home: const SignInScreen(),
+      home: const MainFoodPage(), //make it SingInScreen()
+      initialRoute: RouteHelper.initial,
+      getPages: RouteHelper.routes,
     );
   }
 }
