@@ -5,6 +5,8 @@ import 'package:myapp/pages/Screens/signin_screen.dart';
 import 'package:postgres/postgres.dart';
 import 'package:myapp/controllers/popular_product_controller.dart';
 import 'package:myapp/pages/Screens/main_food_page.dart';
+import 'package:myapp/data/repository/recommended_product_repo.dart';
+import 'package:myapp/controllers/recommended_product_controller.dart';
 import 'package:myapp/helper/dependencies.dart' as dep;
 
 
@@ -54,6 +56,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPopularProductList();
+    Get.find<RecommendedProductController>().getRecommendedProductList();
+
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
     title: 'UTMFood',
