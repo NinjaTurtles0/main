@@ -7,6 +7,7 @@ import 'package:myapp/controllers/popular_product_controller.dart';
 import 'package:myapp/pages/Screens/main_food_page.dart';
 import 'package:myapp/data/repository/recommended_product_repo.dart';
 import 'package:myapp/controllers/recommended_product_controller.dart';
+import 'package:myapp/routes/route_helper.dart';
 import 'package:myapp/helper/dependencies.dart' as dep;
 
 
@@ -65,6 +66,8 @@ class MyApp extends StatelessWidget {
     primarySwatch: Colors.blue,
     ),
       home: const MainFoodPage(), //make it SingInScreen()
+      initialRoute: RouteHelper.initial,
+      getPages: RouteHelper.routes,
     );
   }
 }

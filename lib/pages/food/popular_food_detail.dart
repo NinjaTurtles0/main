@@ -3,6 +3,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:myapp/widgets/app.icon.dart';
 import 'package:myapp/widgets/app_column.dart';
 import 'package:myapp/widgets/big_text.dart';
@@ -10,6 +11,7 @@ import 'package:myapp/widgets/expandable.dart';
 import 'package:myapp/widgets/small_text.dart';
 import 'package:myapp/utils/dimensions.dart';
 import 'package:myapp/widgets/icon_and_text_widget.dart';
+import 'package:myapp/pages/Screens/main_food_page.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   const PopularFoodDetail({Key? key}) : super(key: key);
@@ -41,7 +43,12 @@ class PopularFoodDetail extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppIcon(icon: Icons.arrow_back_ios),
+                  GestureDetector(
+                      onTap:(){
+                        Get.to(()=>MainFoodPage());
+                      },
+                      child:
+                      AppIcon(icon: Icons.arrow_back_ios)),
                   AppIcon(icon: Icons.shopping_cart_outlined)
                 ],
               )),
