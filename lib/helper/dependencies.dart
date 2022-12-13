@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:utm/controllers/popular_product_controller.dart';
-import 'package:utm/data/api/api_client.dart';
-import 'package:utm/data/repository/popular_product_repo.dart';
-import 'package:utm/utils/app_constants.dart';
+import 'package:myapp/controllers/popular_product_controller.dart';
+import 'package:myapp/data/api/api_client.dart';
+import 'package:myapp/data/repository/popular_product_repo.dart';
+import 'package:myapp/utils/app_constants.dart';
 
 Future<void> init() async {
   //api client

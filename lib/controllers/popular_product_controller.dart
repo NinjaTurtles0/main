@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
-import 'package:utm/data/repository/popular_product_repo.dart';
-import 'package:utm/models/products_model.dart';
+import 'package:myapp/data/repository/popular_product_repo.dart';
+import 'package:myapp/models/products_model.dart';
 
 class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;
   PopularProductController({required this.popularProductRepo});
 
   List<dynamic> _popularProductList = [];
-  List<dynamic> get PopularProductList => _popularProductList;
+  List<dynamic> get popularProductList => _popularProductList;
 
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();

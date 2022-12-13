@@ -7,6 +7,8 @@ import 'package:myapp/widgets/big_text.dart';
 import 'package:myapp/widgets/small_text.dart';
 import 'package:myapp/utils/dimensions.dart';
 import 'package:myapp/widgets/icon_and_text_widget.dart';
+import 'package:myapp/controllers/popular_product_controller.dart';
+import 'package:get/get.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -41,26 +43,32 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return Column(
       children: [
         //slider
-        Container(
-          height: Dimensions.pageView,
-          child: PageView.builder(
-              controller: pageController,
-              itemCount: 5,
-              itemBuilder: (context, position) {
-                return _buildPageItem(position);
-              }),
-        ),
-        new DotsIndicator(
-          dotsCount: 5,
-          position: _currPageValue,
-          decorator: DotsDecorator(
-            activeColor: Color(0xFFEF6C00),
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
-          ),
-        ),
+        GetBuilder<PopularProductController>(builder:(popularProducts){
+          return Container(
+            height: Dimensions.pageView,
+            child: PageView.builder(
+                controller: pageController,
+                itemCount: popularProducts.popularProductList.length,
+                itemBuilder: (context, position) {
+                  return _buildPageItem(position);
+                }),
+          );
+
+        }),
+        GetBuilder<PopularProductController>(builder: (popularProducts){
+          return DotsIndicator(
+            dotsCount: popularProducts.popularProductList.isEmpty?1:popularProducts.popularProductList.length,
+            position: _currPageValue,
+            decorator: DotsDecorator(
+              activeColor: Color(0xFFEF6C00),
+              size: const Size.square(9.0),
+              activeSize: const Size(18.0, 9.0),
+              activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0)),
+            ),
+          );
+
+        }),
         //popular text
         SizedBox(
           height: Dimensions.height30,
