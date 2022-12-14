@@ -1,11 +1,11 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:utm/widgets/big_text.dart';
-import 'package:utm/utils/color_utils.dart';
-import 'package:utm/widgets/small_text.dart';
-import 'package:utm/utils/dimensions.dart';
-import 'package:utm/widgets/icon_and_text_widget.dart';
+import 'package:myapp/widgets/big_text.dart';
+import 'package:myapp/utils/color_utils.dart';
+import 'package:myapp/widgets/small_text.dart';
+import 'package:myapp/utils/dimensions.dart';
+import 'package:myapp/widgets/icon_and_text_widget.dart';
 
 class Arked extends StatefulWidget {
   const Arked({Key? key}) : super(key: key);

@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:utm/pages/Screens/home_screen.dart';
-import 'package:utm/utils/reusable_widgets.dart';
-import 'package:utm/utils/color_utils.dart';
-import 'package:utm/main.dart';
-//import 'package:postgres/postgres.dart';
+import 'package:myapp/pages/Screens/home_screen.dart';
+import 'package:myapp/utils/reusable_widgets.dart';
+import 'package:myapp/utils/color_utils.dart';
+import 'package:myapp/main.dart';
+import 'package:postgres/postgres.dart';
 
 //Draft Unfinished
 

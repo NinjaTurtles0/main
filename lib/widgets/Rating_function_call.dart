@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:utm/pages/Screens/rating.dart';
+import 'package:myapp/pages/Screens/rating.dart';
 
 void main() {
   runApp(Rate());

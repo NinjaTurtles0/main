@@ -3,14 +3,14 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:utm/controllers/popular_product_controller.dart';
-import 'package:utm/controllers/recommended_product_controller.dart';
-import 'package:utm/utils/app_constants.dart';
-import 'package:utm/widgets/app_icon.dart';
-import 'package:utm/widgets/app_column.dart';
-import 'package:utm/widgets/big_text.dart';
-import 'package:utm/widgets/expandable.dart';
-import 'package:utm/utils/dimensions.dart';
+import 'package:myapp/controllers/popular_product_controller.dart';
+import 'package:myapp/controllers/recommended_product_controller.dart';
+import 'package:myapp/utils/app_constants.dart';
+import 'package:myapp/widgets/app_icon.dart';
+import 'package:myapp/widgets/app_column.dart';
+import 'package:myapp/widgets/big_text.dart';
+import 'package:myapp/widgets/expandable.dart';
+import 'package:myapp/utils/dimensions.dart';
 import 'package:get/get.dart';
 
 class PopularFoodDetail extends StatelessWidget {

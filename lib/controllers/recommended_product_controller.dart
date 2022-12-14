@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
-import 'package:utm/data/repository/recommended_product_repo.dart';
-import 'package:utm/pages/food/recommended_food_detail.dart';
-import 'package:utm/models/products_model.dart';
-import 'package:utm/routes/route_helper.dart';
+import 'package:myapp/data/repository/recommended_product_repo.dart';
+import 'package:myapp/pages/food/recommended_food_detail.dart';
+import 'package:myapp/models/products_model.dart';
+import 'package:myapp/routes/route_helper.dart';
 import 'package:get/get.dart';
-import 'package:utm/widgets/expandable.dart';
-import 'package:utm/widgets/big_text.dart';
-import 'package:utm/widgets/app_icon.dart';
+import 'package:myapp/widgets/expandable.dart';
+import 'package:myapp/widgets/big_text.dart';
+import 'package:myapp/widgets/app_icon.dart';
 
 class RecommendedProductController extends GetxController {
   final RecommendedProductRepo recommendedProductRepo;

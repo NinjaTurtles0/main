@@ -1,15 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:utm/pages/Screens/home_screen.dart';
-import 'package:utm/pages/Screens/pending_verification.dart';
-import 'package:utm/pages/Screens/reset_password.dart';
-import 'package:utm/pages/Screens/signupR_screen.dart';
-import 'package:utm/pages/Screens/signup_screen.dart';
-import 'package:utm/utils/color_utils.dart';
-import 'package:utm/widgets/reusable_widgets.dart';
-import 'package:utm/main.dart';
-//import 'package:utm/postgres.dart';
-import 'package:utm/pages/Screens/signin_screen.dart';
+import 'package:myapp/pages/Screens/home_screen.dart';
+import 'package:myapp/pages/Screens/pending_verification.dart';
+import 'package:myapp/pages/Screens/reset_password.dart';
+import 'package:myapp/pages/Screens/signupR_screen.dart';
+import 'package:myapp/pages/Screens/signup_screen.dart';
+import 'package:myapp/utils/color_utils.dart';
+import 'package:myapp/widgets/reusable_widgets.dart';
+import 'package:myapp/main.dart';
+//import 'package:myapp/postgres.dart';
+import 'package:myapp/pages/Screens/signin_screen.dart';
 
 //Draft Unfinished
 class SignInRScreen extends StatefulWidget {

@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:utm/utils/app_constants.dart';
-import 'package:utm/utils/dimensions.dart';
-import 'package:utm/widgets/big_text.dart';
+import 'package:myapp/utils/app_constants.dart';
+import 'package:myapp/utils/dimensions.dart';
+import 'package:myapp/widgets/big_text.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/expandable.dart';
 import 'package:get/get.dart';
-import 'package:utm/routes/route_helper.dart';
-import 'package:utm/models/products_model.dart';
-import 'package:utm/routes/route_helper.dart';
-import 'package:utm/widgets/expandable.dart';
-
-import 'package:utm/widgets/app_icon.dart';
+import 'package:myapp/routes/route_helper.dart';
+import 'package:myapp/models/products_model.dart';
+import 'package:myapp/routes/route_helper.dart';
+import 'package:myapp/widgets/expandable.dart';
+import 'package:myapp/widgets/app_icon.dart';
+import 'package:myapp/controllers/popular_product_controller.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
@@ -20,6 +20,7 @@ class RecommendedFoodDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var product= Get.find<PopularProductController>().popularProductList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(

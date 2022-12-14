@@ -2,19 +2,20 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:utm/widgets/app_column.dart';
-import 'package:utm/widgets/big_text.dart';
-import 'package:utm/widgets/small_text.dart';
-import 'package:utm/utils/dimensions.dart';
-import 'package:utm/widgets/icon_and_text_widget.dart';
-import 'package:utm/controllers/popular_product_controller.dart';
+import 'package:myapp/widgets/app_column.dart';
+import 'package:myapp/widgets/big_text.dart';
+import 'package:myapp/widgets/small_text.dart';
+import 'package:myapp/utils/dimensions.dart';
+import 'package:myapp/widgets/icon_and_text_widget.dart';
+import 'package:myapp/controllers/popular_product_controller.dart';
 import 'package:get/get.dart';
-import 'package:utm/models/products_model.dart';
-import 'package:utm/utils/app_constants.dart';
-import 'package:utm/data/repository/recommended_product_repo.dart';
-import 'package:utm/controllers/recommended_product_controller.dart';
-import 'package:utm/pages/food/popular_food_detail.dart';
-import 'package:utm/routes/route_helper.dart';
+import 'package:myapp/models/products_model.dart';
+import 'package:myapp/utils/app_constants.dart';
+import 'package:myapp/data/repository/recommended_product_repo.dart';
+import 'package:myapp/controllers/recommended_product_controller.dart';
+import 'package:myapp/pages/food/popular_food_detail.dart';
+import 'package:myapp/routes/route_helper.dart';
+
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);

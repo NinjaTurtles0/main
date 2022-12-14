@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:utm/data/repository/popular_product_repo.dart';
-import 'package:utm/models/products_model.dart';
+import 'package:myapp/data/repository/popular_product_repo.dart';
+import 'package:myapp/models/products_model.dart';
 
 class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;

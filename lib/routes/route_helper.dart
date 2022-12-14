@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:utm/pages/Screens/main_food_page.dart';
-import 'package:utm/pages/food/popular_food_detail.dart';
-import 'package:utm/pages/food/recommended_food_detail.dart';
+import 'package:myapp/pages/Screens/main_food_page.dart';
+import 'package:myapp/pages/food/popular_food_detail.dart';
+import 'package:myapp/pages/food/recommended_food_detail.dart';
 
 class RouteHelper {
   static const String initial = "/";

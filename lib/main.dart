@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:utm/controllers/popular_product_controller.dart';
-import 'package:utm/pages/Screens/main_food_page.dart';
-import 'package:utm/pages/Screens/food_page_body.dart';
-import 'package:utm/pages/Screens/signin_screen.dart';
-import 'package:utm/pages/food/popular_food_detail.dart';
-import 'package:utm/pages/food/recommended_food_detail.dart';
-import 'package:utm/helper/dependencies.dart' as dep;
+import 'package:myapp/controllers/popular_product_controller.dart';
+import 'package:myapp/pages/Screens/main_food_page.dart';
+import 'package:myapp/pages/Screens/food_page_body.dart';
+import 'package:myapp/pages/Screens/signin_screen.dart';
+import 'package:myapp/pages/food/popular_food_detail.dart';
+import 'package:myapp/pages/food/recommended_food_detail.dart';
+import 'package:myapp/helper/dependencies.dart' as dep;
 
 void main() async {
   await dep.init();
