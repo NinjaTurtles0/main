@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/utils/app_constants.dart';
-import 'package:myapp/utils/dimensions.dart';
-import 'package:myapp/widgets/big_text.dart';
+import '../../utils/app_constants.dart';
+import '../../utils/dimensions.dart';
+import '../../widgets/big_text.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/expandable.dart';
 import 'package:get/get.dart';
-import 'package:myapp/routes/route_helper.dart';
-import 'package:myapp/models/products_model.dart';
-import 'package:myapp/routes/route_helper.dart';
-import 'package:myapp/widgets/expandable.dart';
-import 'package:myapp/widgets/app_icon.dart';
-import 'package:myapp/controllers/popular_product_controller.dart';
+import '../../routes/route_helper.dart';
+import '../../models/products_model.dart';
+import '../../routes/route_helper.dart';
+import '../../widgets/expandable.dart';
+import '../../widgets/app_icon.dart';
+import '../../controllers/popular_product_controller.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;

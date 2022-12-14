@@ -3,15 +3,17 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myapp/controllers/popular_product_controller.dart';
-import 'package:myapp/controllers/recommended_product_controller.dart';
-import 'package:myapp/utils/app_constants.dart';
-import 'package:myapp/widgets/app_icon.dart';
-import 'package:myapp/widgets/app_column.dart';
-import 'package:myapp/widgets/big_text.dart';
-import 'package:myapp/widgets/expandable.dart';
-import 'package:myapp/utils/dimensions.dart';
+import '../../controllers/popular_product_controller.dart';
+import '../../controllers/recommended_product_controller.dart';
+import '../../utils/app_constants.dart';
+import '../../widgets/app_icon.dart';
+import '../../widgets/app_column.dart';
+import '../../widgets/big_text.dart';
+import '../../widgets/expandable.dart';
+import '../../utils/dimensions.dart';
 import 'package:get/get.dart';
+
+import '../../controllers/cart_controller.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   final int pageId;
@@ -19,8 +21,8 @@ class PopularFoodDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var product =
-        Get.find<PopularProductController>().popularProductList[pageId];
-    Get.find<PopularProductController>().initProduct();
+    Get.find<PopularProductController>().popularProductList[pageId];
+    Get.find<PopularProductController>().initProduct(Get.find<CartController>());
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -152,9 +154,14 @@ class PopularFoodDetail extends StatelessWidget {
                       bottom: Dimensions.height30,
                       left: Dimensions.width20,
                       right: Dimensions.width20),
-                  child: Bigtext(
-                    text: "\$ ${product.price!} | Add to cart",
-                    color: Colors.white,
+                  child: GestureDetector(
+                    onTap: (){
+                      popularProduct.addItem(product);
+                    },
+                    child: Bigtext(
+                      text: "\$ ${product.price!} | Add to cart",
+                      color: Colors.white,
+                    ),
                   ),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.radius20),

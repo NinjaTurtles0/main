@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:myapp/data/api/api_client.dart';
-import 'package:myapp/utils/app_constants.dart';
+import '../../data/api/api_client.dart';
+import '../../utils/app_constants.dart';
 
 class RecommendedProductRepo extends GetxService {
   final ApiClient apiClient;
