@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:myapp/data/repository/cart_repo.dart';
+import '../data/repository/cart_repo.dart';
 import '../models/products_model.dart';
 import '../models/cart_model.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +24,7 @@ class CartController extends GetxController {
           quantity: value.quantity! + quantity,
           isExit: true,
           time: DateTime.now().toString(),
+          product: product,
         );
       });
 
@@ -41,6 +42,7 @@ class CartController extends GetxController {
             quantity: quantity,
             isExit: true,
             time: DateTime.now().toString(),
+            product: product,
           );
         });
       } else {
@@ -52,6 +54,7 @@ class CartController extends GetxController {
         );
       }
     }
+    update();
   }
 
   bool exitsInCart(ProductModel product) {
@@ -85,5 +88,13 @@ class CartController extends GetxController {
     return _items.entries.map((e) {
       return e.value;
     }).toList();
+  }
+
+  int get totalAmount {
+    var total = 0;
+    _items.forEach((key, value) {
+      total += value.quantity! * value.price!;
+    });
+    return total;
   }
 }

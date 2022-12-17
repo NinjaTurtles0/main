@@ -8,7 +8,7 @@ import '../../pages/Screens/signup_screen.dart';
 import '../../utils/color_utils.dart';
 import '../../widgets/reusable_widgets.dart';
 import '../../main.dart';
-//import '../../postgres.dart';
+import 'package:postgres/postgres.dart';
 import '../../pages/Screens/signin_screen.dart';
 
 //Draft Unfinished

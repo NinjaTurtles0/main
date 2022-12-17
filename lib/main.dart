@@ -1,13 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/controllers/popular_product_controller.dart';
-import 'package:myapp/pages/Screens/main_food_page.dart';
-import 'package:myapp/pages/Screens/food_page_body.dart';
-import 'package:myapp/pages/Screens/signin_screen.dart';
-import 'package:myapp/pages/food/popular_food_detail.dart';
-import 'package:myapp/pages/food/recommended_food_detail.dart';
-import 'package:myapp/helper/dependencies.dart' as dep;
+import 'package:utm/routes/route_helper.dart';
+import '../controllers/popular_product_controller.dart';
+import '../pages/Screens/main_food_page.dart';
+import '../pages/Screens/food_page_body.dart';
+import '../pages/Screens/signin_screen.dart';
+import '../pages/food/popular_food_detail.dart';
+import '../pages/food/recommended_food_detail.dart';
+import '../helper/dependencies.dart' as dep;
 
 void main() async {
   await dep.init();
@@ -35,9 +36,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const FoodPageBody(),
-      //recommended_food_detail
-      // home: const SignInScreen(),
+      //home: const FoodPageBody(),
+      initialRoute: RouteHelper.getInitial(),
+      //getPages: RouteHelper.routes,
     );
   }
 }

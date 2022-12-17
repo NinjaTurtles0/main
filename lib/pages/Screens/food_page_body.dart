@@ -16,7 +16,6 @@ import '../../controllers/recommended_product_controller.dart';
 import '../../pages/food/popular_food_detail.dart';
 import '../../routes/route_helper.dart';
 
-
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
 
@@ -122,7 +121,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Get.toNamed(RouteHelper.getRecommendedFood(index));
+                        Get.toNamed(
+                            RouteHelper.getRecommendedFood(index, "home"));
                       },
                       child: Container(
                           margin: EdgeInsets.only(
@@ -255,7 +255,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(children: [
         GestureDetector(
           onTap: () {
-            Get.toNamed(RouteHelper.getPopularFood(index));
+            Get.toNamed(RouteHelper.getPopularFood(index, "home"));
           },
           child: Container(
               height: Dimensions.pageViewContainer,

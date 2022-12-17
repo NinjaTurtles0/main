@@ -1,3 +1,1 @@
-class CartRepo{
-
-}
+class CartRepo {}

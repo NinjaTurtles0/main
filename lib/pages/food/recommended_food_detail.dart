@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/cart/cart_page.dart';
+import '../../pages/cart/cart_page.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
@@ -16,7 +16,9 @@ import '../../controllers/cart_controller.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
-  const RecommendedFoodDetail({Key? key, required this.pageId})
+  final String page;
+  const RecommendedFoodDetail(
+      {Key? key, required this.pageId, required this.page})
       : super(key: key);
 
   @override
@@ -37,48 +39,53 @@ class RecommendedFoodDetail extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(RouteHelper.getInitial());
+                    if (page == "cartpage") {
+                      Get.toNamed(RouteHelper.getCartPage());
+                    } else {
+                      Get.toNamed(RouteHelper.getInitial());
+                    }
                   },
                   child: AppIcon(icon: Icons.clear),
                 ),
                 //AppIcon(icon: Icons.shopping_cart_outlined)
                 GetBuilder<PopularProductController>(builder: (controller) {
-                  return Stack(
-                    children: [
-                      AppIcon(
-                        icon: Icons.shopping_cart_outlined,
-                      ),
-                      Get.find<PopularProductController>().totalItems >= 1
-                          ? Positioned(
-                              right: 0,
-                              top: 0,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Get.to(() => CartPage());
-                                },
+                  return GestureDetector(
+                    onTap: () {
+                      if (controller.totalItems >= 1)
+                        Get.toNamed(RouteHelper.getCartPage());
+                    },
+                    child: Stack(
+                      children: [
+                        AppIcon(
+                          icon: Icons.shopping_cart_outlined,
+                        ),
+                        Get.find<PopularProductController>().totalItems >= 1
+                            ? Positioned(
+                                right: 0,
+                                top: 0,
                                 child: AppIcon(
                                   icon: Icons.circle,
                                   size: 20,
                                   iconColor: Colors.transparent,
                                   backgroundColor: Colors.green,
                                 ),
-                              ),
-                            )
-                          : Container(),
-                      Get.find<PopularProductController>().totalItems >= 1
-                          ? Positioned(
-                              right: 3,
-                              top: 3,
-                              child: Bigtext(
-                                text: Get.find<PopularProductController>()
-                                    .totalItems
-                                    .toString(),
-                                size: 12,
-                                color: Colors.white,
-                              ),
-                            )
-                          : Container()
-                    ],
+                              )
+                            : Container(),
+                        Get.find<PopularProductController>().totalItems >= 1
+                            ? Positioned(
+                                right: 3,
+                                top: 3,
+                                child: Bigtext(
+                                  text: Get.find<PopularProductController>()
+                                      .totalItems
+                                      .toString(),
+                                  size: 12,
+                                  color: Colors.white,
+                                ),
+                              )
+                            : Container()
+                      ],
+                    ),
                   );
                 })
               ],

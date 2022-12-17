@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:myapp/widgets/small_text.dart';
+import '../widgets/small_text.dart';
 import '../utils/dimensions.dart';
 
 class IconAndTextWidget extends StatelessWidget {

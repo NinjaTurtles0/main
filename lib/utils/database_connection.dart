@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/Screens/home_screen.dart';
-import 'package:myapp/pages/Screens/reset_password.dart';
-import 'package:myapp/pages/Screens/signup_screen.dart';
-import 'package:myapp/utils/color_utils.dart';
-import 'package:myapp/widgets/reusable_widgets.dart';
+import '../pages/Screens/home_screen.dart';
+import '../pages/Screens/reset_password.dart';
+import '../pages/Screens/signup_screen.dart';
+import '../utils/color_utils.dart';
+import '../widgets/reusable_widgets.dart';
 import 'package:postgres/postgres.dart';
 
 //To connect to the database

@@ -33,8 +33,9 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,
         : TextInputType.emailAddress,
   );
 }
-TextFormField reusableTextFieldE(String text, IconData icon, bool isPasswordType,
-    TextEditingController controller) {
+
+TextFormField reusableTextFieldE(String text, IconData icon,
+    bool isPasswordType, TextEditingController controller) {
   return TextFormField(
     validator: validateEmail,
     controller: controller,
@@ -43,10 +44,7 @@ TextFormField reusableTextFieldE(String text, IconData icon, bool isPasswordType
     cursorColor: Colors.white,
     style: TextStyle(color: Colors.white.withOpacity(0.9)),
     decoration: InputDecoration(
-      prefixIcon: Icon(
-          icon,
-          color: Colors.white70
-      ),
+      prefixIcon: Icon(icon, color: Colors.white70),
       labelText: text,
       labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
       filled: true,
@@ -54,7 +52,7 @@ TextFormField reusableTextFieldE(String text, IconData icon, bool isPasswordType
       fillColor: Colors.white.withOpacity(0.3),
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
-          borderSide: const BorderSide(width:0, style: BorderStyle.none)),
+          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
     ),
     keyboardType: isPasswordType
         ? TextInputType.visiblePassword
@@ -62,8 +60,8 @@ TextFormField reusableTextFieldE(String text, IconData icon, bool isPasswordType
   );
 }
 
-TextFormField reusableTextFieldP(String text, IconData icon, bool isPasswordType,
-    TextEditingController controller) {
+TextFormField reusableTextFieldP(String text, IconData icon,
+    bool isPasswordType, TextEditingController controller) {
   return TextFormField(
     validator: validatePassword,
     controller: controller,
@@ -72,10 +70,7 @@ TextFormField reusableTextFieldP(String text, IconData icon, bool isPasswordType
     cursorColor: Colors.white,
     style: TextStyle(color: Colors.white.withOpacity(0.9)),
     decoration: InputDecoration(
-      prefixIcon: Icon(
-          icon,
-          color: Colors.white70
-      ),
+      prefixIcon: Icon(icon, color: Colors.white70),
       labelText: text,
       labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
       filled: true,
@@ -83,7 +78,7 @@ TextFormField reusableTextFieldP(String text, IconData icon, bool isPasswordType
       fillColor: Colors.white.withOpacity(0.3),
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
-          borderSide: const BorderSide(width:0, style: BorderStyle.none)),
+          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
     ),
     keyboardType: isPasswordType
         ? TextInputType.visiblePassword
@@ -118,14 +113,14 @@ Container firebaseButton(BuildContext context, String title, Function onTap) {
     ),
   );
 }
-String? validateEmail(String? formEmail){
-  if(formEmail == null || formEmail.isEmpty)
+
+String? validateEmail(String? formEmail) {
+  if (formEmail == null || formEmail.isEmpty)
     return 'E-mail address is required';
 
   String pattern = r'\w+@\w+\.\w+';
   RegExp regex = RegExp(pattern);
-  if(!regex.hasMatch(formEmail))
-    return 'Invalid E-mail Address Format.';
+  if (!regex.hasMatch(formEmail)) return 'Invalid E-mail Address Format.';
 
   return null;
 }
@@ -133,11 +128,10 @@ String? validateEmail(String? formEmail){
 String? validatePassword(String? formPassword) {
   if (formPassword == null || formPassword.isEmpty)
     return 'Password is required';
-  String pattern =
-      r'^(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
+  String pattern = r'^(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
 
   RegExp regex = RegExp(pattern);
-  if (!regex.hasMatch(formPassword)){
+  if (!regex.hasMatch(formPassword)) {
     return '''
       Password must be at least 8 characters,
       include an uppercase letter, number and symbol''';
