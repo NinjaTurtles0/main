@@ -1,4 +1,4 @@
-import 'package:utm/models/products_model.dart';
+import 'package:myapp/models/products_model.dart';
 
 class CartModel {
   int? id;
