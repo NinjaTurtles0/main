@@ -1,157 +1,66 @@
-import 'dart:html';
-import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-import 'package:utm/widgets/app_icon.dart';
-import 'package:utm/widgets/app_column.dart';
-import 'package:utm/widgets/big_text.dart';
-import 'package:utm/widgets/expandable.dart';
-import 'package:utm/widgets/small_text.dart';
-import 'package:utm/utils/dimensions.dart';
-import 'package:utm/widgets/icon_and_text_widget.dart';
-import 'package:utm/pages/Screens/main_food_page.dart';
+//import 'package:flutter/foundation.dart';
+class Product {
+  int? _totalSize;
+  int? _typeId;
+  int? _offset;
+  late List<ProductModel> _products;
+  List<ProductModel> get products => _products;
+  Product(
+      {required totalSize,
+      required typeId,
+      required offset,
+      required products}) {
+    this._totalSize = totalSize;
+    this._typeId = typeId;
+    this._offset = offset;
+    this._products = products;
+  }
+  Product.fromJson(Map<String, dynamic> json) {
+    _totalSize = json['total_size'];
+    _typeId = json['type_id'];
+    _offset = json['offset'];
+    if (json['products'] != null) {
+      _products = <ProductModel>[];
+      json['products'].forEach((v) {
+        _products!.add(ProductModel.fromJson(v));
+        _products.add(ProductModel.fromJson(v));
+      });
+    }
+  }
+}
 
-class PopularFoodDetail extends StatelessWidget {
-  const PopularFoodDetail({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          //background image
-          Positioned(
-            left: 0,
-            right: 0,
-            child: Container(
-              width: double.maxFinite,
-              height: Dimensions.popularFoodImgSize,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage("assets/Logo1.png"))),
-            ),
-          ),
-          //icon widget
-          Positioned(
-              top: Dimensions.height45,
-              left: Dimensions.width20,
-              right: Dimensions.width20,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                      onTap: () {
-                        Get.to(() => MainFoodPage());
-                      },
-                      child: AppIcon(icon: Icons.arrow_back_ios)),
-                  AppIcon(icon: Icons.shopping_cart_outlined)
-                ],
-              )),
-
-          //intro of food
-          Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              top: Dimensions.popularFoodImgSize - 20,
-              child: Container(
-                padding: EdgeInsets.only(
-                    left: Dimensions.width20,
-                    right: Dimensions.width20,
-                    top: Dimensions.height20),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(Dimensions.radius20),
-                        topLeft: Radius.circular(Dimensions.radius20)),
-                    color: Colors.white),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppColumn(text: "Chinese Side"),
-                    SizedBox(
-                      height: Dimensions.height20,
-                    ),
-                    Bigtext(text: "Introduce"),
-                    SizedBox(
-                      height: Dimensions.height20,
-                    ),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        child: ExpandableTextWidget(
-                            text:
-                                "Yum food utmYum food utmYum food utmYum food utmYum food utmYum food utmYum food utmYum food utmYum food utmYum food utm"),
-                      ),
-                    )
-                  ],
-                ),
-              ))
-        ],
-      ),
-      bottomNavigationBar: Container(
-        height: Dimensions.bottomHeightBar,
-        padding: EdgeInsets.only(
-            top: Dimensions.height30,
-            bottom: Dimensions.height30,
-            left: Dimensions.width20,
-            right: Dimensions.width20),
-        decoration: BoxDecoration(
-            color: Color(0xFF424242),
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(Dimensions.radius20 * 2),
-                topRight: Radius.circular(Dimensions.radius20 * 2))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              padding: EdgeInsets.only(
-                  top: Dimensions.height20,
-                  bottom: Dimensions.height20,
-                  left: Dimensions.width20,
-                  right: Dimensions.width20),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius20),
-                  color: Colors.white),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.remove,
-                    color: Color(0xFFCDDC39),
-                  ),
-                  SizedBox(
-                    width: Dimensions.width10 / 2,
-                  ),
-                  Bigtext(text: "0"),
-                  SizedBox(
-                    width: Dimensions.width10 / 2,
-                  ),
-                  Icon(
-                    Icons.add,
-                    color: Color(0xFFCDDC39),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(
-                  top: Dimensions.height30,
-                  bottom: Dimensions.height30,
-                  left: Dimensions.width20,
-                  right: Dimensions.width20),
-              child: Bigtext(
-                text: "\$10 | Add to cart",
-                color: Colors.white,
-              ),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius20),
-                  color: Colors.white54),
-            )
-          ],
-        ),
-      ),
-    );
+class ProductModel {
+  int? id;
+  String? name;
+  String? description;
+  int? price;
+  int? stars;
+  String? img;
+  String? location;
+  String? createdAt;
+  String? updatedAt;
+  int? typeId;
+  ProductModel(
+      {this.id,
+      this.name,
+      this.description,
+      this.price,
+      this.stars,
+      this.img,
+      this.location,
+      this.createdAt,
+      this.updatedAt,
+      this.typeId});
+  ProductModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    description = json['description'];
+    price = json['price'];
+    stars = json['stars'];
+    img = json['img'];
+    location = json['location'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    typeId = json['type_id'];
   }
 }

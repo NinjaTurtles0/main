@@ -2,19 +2,19 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:utm/widgets/app_column.dart';
-import 'package:utm/widgets/big_text.dart';
-import 'package:utm/widgets/small_text.dart';
-import 'package:utm/utils/dimensions.dart';
-import 'package:utm/widgets/icon_and_text_widget.dart';
-import 'package:utm/controllers/popular_product_controller.dart';
+import '../../widgets/app_column.dart';
+import '../../widgets/big_text.dart';
+import '../../widgets/small_text.dart';
+import '../../utils/dimensions.dart';
+import '../../widgets/icon_and_text_widget.dart';
+import '../../controllers/popular_product_controller.dart';
 import 'package:get/get.dart';
-import 'package:utm/models/products_model.dart';
-import 'package:utm/utils/app_constants.dart';
-import 'package:utm/data/repository/recommended_product_repo.dart';
-import 'package:utm/controllers/recommended_product_controller.dart';
-import 'package:utm/pages/food/popular_food_detail.dart';
-import 'package:utm/routes/route_helper.dart';
+import '../../models/products_model.dart';
+import '../../utils/app_constants.dart';
+import '../../data/repository/recommended_product_repo.dart';
+import '../../controllers/recommended_product_controller.dart';
+import '../../pages/food/popular_food_detail.dart';
+import '../../routes/route_helper.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -42,6 +42,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   void dispose() {
     pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -121,7 +122,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Get.toNamed(RouteHelper.getRecommendedFood(index));
+                        Get.toNamed(
+                            RouteHelper.getRecommendedFood(index, "home"));
                       },
                       child: Container(
                           margin: EdgeInsets.only(
@@ -254,7 +256,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(children: [
         GestureDetector(
           onTap: () {
-            Get.toNamed(RouteHelper.getPopularFood(index));
+            Get.toNamed(RouteHelper.getPopularFood(index, "home"));
           },
           child: Container(
               height: Dimensions.pageViewContainer,

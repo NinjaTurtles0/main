@@ -1,11 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
+/* import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:utm/pages/Screens/home_screen.dart';
-import 'package:utm/pages/Screens/main_food_page.dart';
-import 'package:utm/pages/Screens/reset_password.dart';
-import 'package:utm/pages/Screens/signup_screen.dart';
-import 'package:utm/utils/color_utils.dart';
-import 'package:utm/widgets/reusable_widgets.dart';
+import '../../pages/Screens/home_screen.dart';
+import '../../pages/Screens/main_food_page.dart';
+import '../../pages/Screens/reset_password.dart';
+import '../../pages/Screens/signup_screen.dart';
+import '../../utils/color_utils.dart';
+import '../../widgets/reusable_widgets.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -107,3 +107,4 @@ class _SignInScreenState extends State<SignInScreen> {
         ));
   }
 }
+*/
