@@ -34,6 +34,58 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,
   );
 }
 
+TextFormField reusableTextFieldE(String text, IconData icon,
+    bool isPasswordType, TextEditingController controller) {
+  return TextFormField(
+    validator: validateEmail,
+    controller: controller,
+    obscureText: isPasswordType,
+    autocorrect: !isPasswordType,
+    cursorColor: Colors.white,
+    style: TextStyle(color: Colors.white.withOpacity(0.9)),
+    decoration: InputDecoration(
+      prefixIcon: Icon(icon, color: Colors.white70),
+      labelText: text,
+      labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
+      filled: true,
+      floatingLabelBehavior: FloatingLabelBehavior.never,
+      fillColor: Colors.white.withOpacity(0.3),
+      border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+    ),
+    keyboardType: isPasswordType
+        ? TextInputType.visiblePassword
+        : TextInputType.emailAddress,
+  );
+}
+
+TextFormField reusableTextFieldP(String text, IconData icon,
+    bool isPasswordType, TextEditingController controller) {
+  return TextFormField(
+    validator: validatePassword,
+    controller: controller,
+    obscureText: isPasswordType,
+    autocorrect: !isPasswordType,
+    cursorColor: Colors.white,
+    style: TextStyle(color: Colors.white.withOpacity(0.9)),
+    decoration: InputDecoration(
+      prefixIcon: Icon(icon, color: Colors.white70),
+      labelText: text,
+      labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
+      filled: true,
+      floatingLabelBehavior: FloatingLabelBehavior.never,
+      fillColor: Colors.white.withOpacity(0.3),
+      border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+    ),
+    keyboardType: isPasswordType
+        ? TextInputType.visiblePassword
+        : TextInputType.emailAddress,
+  );
+}
+
 Container firebaseButton(BuildContext context, String title, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
@@ -60,4 +112,29 @@ Container firebaseButton(BuildContext context, String title, Function onTap) {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),
     ),
   );
+}
+
+String? validateEmail(String? formEmail) {
+  if (formEmail == null || formEmail.isEmpty)
+    return 'E-mail address is required';
+
+  String pattern = r'\w+@\w+\.\w+';
+  RegExp regex = RegExp(pattern);
+  if (!regex.hasMatch(formEmail)) return 'Invalid E-mail Address Format.';
+
+  return null;
+}
+
+String? validatePassword(String? formPassword) {
+  if (formPassword == null || formPassword.isEmpty)
+    return 'Password is required';
+  String pattern = r'^(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
+
+  RegExp regex = RegExp(pattern);
+  if (!regex.hasMatch(formPassword)) {
+    return '''
+      Password must be at least 8 characters,
+      include an uppercase letter, number and symbol''';
+  }
+  return null;
 }

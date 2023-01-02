@@ -1,13 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:utm/controllers/popular_product_controller.dart';
-import 'package:utm/pages/Screens/main_food_page.dart';
-import 'package:utm/pages/Screens/food_page_body.dart';
-import 'package:utm/pages/Screens/signin_screen.dart';
-import 'package:utm/pages/food/popular_food_detail.dart';
-import 'package:utm/pages/food/recommended_food_detail.dart';
-import 'package:utm/helper/dependencies.dart' as dep;
+import 'pages/Screens/home_page.dart';
+import 'pages/splash/splash_page.dart';
+import 'routes/route_helper.dart';
+import '../controllers/popular_product_controller.dart';
+import '../pages/cart/cart_page.dart';
+import '../pages/Screens/food_page_body.dart';
+import '../controllers/recommended_product_controller.dart';
+import '../pages/Screens/signin_screen.dart';
+import '../pages/food/popular_food_detail.dart';
+import '../helper/dependencies.dart' as dep;
 
 void main() async {
   await dep.init();
@@ -29,15 +32,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPopularProductList();
-    return MaterialApp(
+    Get.find<RecommendedProductController>().getRecommendedProductList();
+
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'UTMFood',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const FoodPageBody(),
-      //recommended_food_detail
-      // home: const SignInScreen(),
+      home: FoodPageBody(),
+      //initialRoute: RouteHelper.getInitial(),
+      getPages: RouteHelper.routes,
     );
   }
 }

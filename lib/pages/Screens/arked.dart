@@ -1,11 +1,13 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:utm/widgets/big_text.dart';
-import 'package:utm/utils/color_utils.dart';
-import 'package:utm/widgets/small_text.dart';
-import 'package:utm/utils/dimensions.dart';
-import 'package:utm/widgets/icon_and_text_widget.dart';
+import 'package:myapp/pages/Screens/main_food_page.dart';
+import 'package:myapp/widgets/big_text.dart';
+import '../../utils/colors.dart';
+import '../../utils/color_utils.dart';
+import '../../widgets/small_text.dart';
+import '../../utils/dimensions.dart';
+import 'package:myapp/widgets/icon_and_text_widget.dart';
 
 class Arked extends StatefulWidget {
   const Arked({Key? key}) : super(key: key);
@@ -37,11 +39,15 @@ class _ArkedState extends State<Arked> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+    return Scaffold(
+      body: Stack(children: [
         Container(
-          height: Dimensions.pageView,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                hexStringToColor("E97777"),
+                hexStringToColor("FF9F9F"),
+                hexStringToColor("FCDDB0")
+              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: PageView.builder(
               controller: pageController,
               itemCount: 5,
@@ -50,6 +56,7 @@ class _ArkedState extends State<Arked> {
               }),
         ),
         new DotsIndicator(
+          mainAxisAlignment: MainAxisAlignment.center,
           dotsCount: 5,
           position: _currPageValue,
           decorator: DotsDecorator(
@@ -60,7 +67,7 @@ class _ArkedState extends State<Arked> {
                 borderRadius: BorderRadius.circular(5.0)),
           ),
         ),
-      ],
+      ]),
     );
   }
 
@@ -91,101 +98,42 @@ class _ArkedState extends State<Arked> {
     }
 
     return Transform(
-      transform: matrix,
-      child: Stack(children: [
-        Container(
-            height: Dimensions.pageViewContainer,
-            margin: EdgeInsets.all(100.0),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: index.isEven
-                    ? const Color(0xFFE64A19)
-                    : const Color(0xFFFF8A65),
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/2017-10-12-modified.png")))),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            height: Dimensions.pageViewTextContainer,
-            margin: EdgeInsets.only(left: 30, right: 30, bottom: 30),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: const Color(0xFFF5F5F5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xFF424242),
-                    blurRadius: 5.0,
-                    offset: Offset(0, 5),
-                  ),
-                  BoxShadow(
-                    color: Color(0xFFF5F5F5),
-                    offset: Offset(-5, 0),
-                  ),
-                  BoxShadow(
-                    color: Color(0xFFF5F5F5),
-                    offset: Offset(5, 0),
-                  )
-                ]),
-            child: Container(
-              padding: EdgeInsets.only(
-                  top: Dimensions.height15, left: 15, right: 15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Bigtext(text: "Chinese Side"),
-                  SizedBox(height: Dimensions.height10),
-                  Row(
-                    children: [
-                      Wrap(
-                        children: List.generate(
-                            5,
-                            (index) => Icon(Icons.star,
-                                color: Color(0xFFCDDC39), size: 15)),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      SmallText(text: "4.5"),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      SmallText(text: "1287"),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      SmallText(
-                        text: "Comments",
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: Dimensions.height20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconAndTextWidget(
-                        icon: Icons.circle_sharp,
-                        text: "Normal",
-                        iconColor: const Color(0xFFFFA726),
-                      ),
-                      IconAndTextWidget(
-                        icon: Icons.location_on,
-                        text: "1.7km",
-                        iconColor: const Color(0xFF00796B),
-                      ),
-                      IconAndTextWidget(
-                        icon: Icons.access_time_rounded,
-                        text: "32min",
-                        iconColor: const Color(0xFFF48FB1),
-                      ),
-                    ],
-                  )
-                ],
+        transform: matrix,
+        child: Stack(children: [
+          Container(
+              alignment: Alignment.topCenter,
+              margin: EdgeInsets.only(left: 5, right: 5, top: 5),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: index.isEven
+                      ? const Color(0xFFE64A19)
+                      : const Color(0xFFFF8A65),
+                  image: DecorationImage(
+                    //fit: BoxFit.cover,
+                      image: AssetImage("assets/2017-10-12-modified.png")))),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ElevatedButton(
+              child: const Text('Arked Meranti'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainFoodPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor:
+                MaterialStateProperty.all(const Color(0xFFFF7043)),
+                overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.hovered))
+                      return const Color(0xFFFFAB91); //<-- SEE HERE
+                    return null; // Defer to the widget's default.
+                  },
+                ),
               ),
             ),
           ),
-        )
-      ]),
-    );
+        ]));
   }
 }

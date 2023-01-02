@@ -1,10 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+/*import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:utm/pages/Screens/home_screen.dart';
-import 'package:utm/utils/reusable_widgets.dart';
-import 'package:utm/utils/color_utils.dart';
-import 'package:utm/main.dart';
+import '../../pages/Screens/home_screen.dart';
+import '../../utils/reusable_widgets.dart';
+import '../../utils/color_utils.dart';
+import '../../main.dart';
 //import 'package:postgres/postgres.dart';
 
 //Draft Unfinished
@@ -191,3 +191,4 @@ String? validatePassword(String? formPassword) {
 
   return null;
 }
+*/
