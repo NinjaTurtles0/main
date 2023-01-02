@@ -1,18 +1,17 @@
-//import 'dart:html';
-import 'package:myapp/controllers/popular_product_controller.dart';
-import '../../routes/route_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+
+import '../../controllers/popular_product_controller.dart';
+import '../../routes/route_helper.dart';
 import '../../controllers/cart_controller.dart';
 import '../../utils/app_constants.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/small_text.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_icon.dart';
-import 'package:get/get.dart';
 import '../../controllers/recommended_product_controller.dart';
-
 import '../../pages/Screens/main_food_page.dart';
 
 class CartPage extends StatelessWidget {
