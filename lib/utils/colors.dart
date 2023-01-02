@@ -1,7 +1,3 @@
-// colors.dart
-// Collection of Material colors as static constants
-// 2019 Rob Vandelinder
-
 import 'package:flutter/material.dart';
 
 // Colors.grey
