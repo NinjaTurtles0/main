@@ -9,5 +9,4 @@ class RecommendedProductRepo extends GetxService {
   Future<Response> getRecommendedProductList() async {
     return await apiClient.getData(AppConstants.RECOMMENDED_PRODUCT_URI);
   }
-} //https://www.dbestech.com/api/product/list
-///api/v1/product/list
+}
