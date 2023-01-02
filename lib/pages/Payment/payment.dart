@@ -1,4 +1,6 @@
+/*
 class PaymentScreen extends StatefulWidget {
+
   final OrderModel orderModel;
   PaymentScreen({required this.orderModel});
 
@@ -115,3 +117,4 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
 }
+ */
