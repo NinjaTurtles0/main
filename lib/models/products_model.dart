@@ -1,4 +1,3 @@
-//import 'package:flutter/foundation.dart';
 class Product {
   int? _totalSize;
   int? _typeId;
