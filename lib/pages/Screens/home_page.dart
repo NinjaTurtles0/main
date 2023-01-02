@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+//import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:myapp/pages/Screens/main_food_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  late PersistentTabController _controller;
+  // late PersistentTabController _controller;
 
   List pages = [
     MainFoodPage(),
@@ -25,14 +25,14 @@ class _HomePageState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
-
+/*
   @override
   void initState() {
     super.initState();
     _controller = PersistentTabController(initialIndex: 0);
-  }
+ }*/
 
-  /* @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[_selectedIndex],
@@ -72,7 +72,8 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-  } */
+  }
+
   List<Widget> _buildScreens() {
     return [
       MainFoodPage(),
@@ -81,7 +82,7 @@ class _HomePageState extends State<HomePage> {
       Container(child: Center(child: Text("Next next next page"))),
     ];
   }
-
+/*
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
@@ -98,7 +99,8 @@ class _HomePageState extends State<HomePage> {
       ),
     ];
   }
-
+  */
+/*
   @override
   Widget build(BuildContext context) {
     return PersistentTabView(
@@ -134,6 +136,5 @@ class _HomePageState extends State<HomePage> {
       navBarStyle:
           NavBarStyle.style1, // Choose the nav bar style with this property.
     );
-  }
+  } */
 }
-

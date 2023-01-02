@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/Screens/main_food_page.dart';
 import 'package:myapp/widgets/big_text.dart';
-import 'package:myapp/utils/colors.dart';
-import 'package:myapp/utils/color_utils.dart';
-import 'package:myapp/widgets/small_text.dart';
-import 'package:myapp/utils/dimensions.dart';
+import '../../utils/colors.dart';
+import '../../utils/color_utils.dart';
+import '../../widgets/small_text.dart';
+import '../../utils/dimensions.dart';
 import 'package:myapp/widgets/icon_and_text_widget.dart';
 
 class Arked extends StatefulWidget {
@@ -44,10 +44,10 @@ class _ArkedState extends State<Arked> {
         Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
-            hexStringToColor("E97777"),
-            hexStringToColor("FF9F9F"),
-            hexStringToColor("FCDDB0")
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+                hexStringToColor("E97777"),
+                hexStringToColor("FF9F9F"),
+                hexStringToColor("FCDDB0")
+              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: PageView.builder(
               controller: pageController,
               itemCount: 5,
@@ -109,7 +109,7 @@ class _ArkedState extends State<Arked> {
                       ? const Color(0xFFE64A19)
                       : const Color(0xFFFF8A65),
                   image: DecorationImage(
-                      //fit: BoxFit.cover,
+                    //fit: BoxFit.cover,
                       image: AssetImage("assets/2017-10-12-modified.png")))),
           Align(
             alignment: Alignment.bottomCenter,
@@ -123,9 +123,9 @@ class _ArkedState extends State<Arked> {
               },
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all(const Color(0xFFFF7043)),
+                MaterialStateProperty.all(const Color(0xFFFF7043)),
                 overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                  (Set<MaterialState> states) {
+                      (Set<MaterialState> states) {
                     if (states.contains(MaterialState.hovered))
                       return const Color(0xFFFFAB91); //<-- SEE HERE
                     return null; // Defer to the widget's default.

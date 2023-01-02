@@ -1,11 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+/*import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../pages/Screens/home_screen.dart';
 import '../../pages/Screens/reset_password.dart';
 import '../../pages/Screens/signup_screen.dart';
 import '../../utils/color_utils.dart';
 import '../../widgets/reusable_widgets.dart';
-import '../../utils/database_connection.dart';
 
 //Draft  unfinished
 class PendingVerification extends StatefulWidget {
@@ -101,3 +100,4 @@ class _PendingVerificationState extends State<PendingVerification> {
     );
   }
 }
+*/
