@@ -1,9 +1,8 @@
+//import 'dart:html';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-
 import '../../pages/cart/cart_page.dart';
 import '../../routes/route_helper.dart';
 import '../../controllers/popular_product_controller.dart';
@@ -14,6 +13,7 @@ import '../../widgets/app_column.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/expandable.dart';
 import '../../utils/dimensions.dart';
+import 'package:get/get.dart';
 import '../../pages/Screens/main_food_page.dart';
 import '../../controllers/cart_controller.dart';
 

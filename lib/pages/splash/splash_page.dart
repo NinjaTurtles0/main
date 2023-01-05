@@ -1,6 +1,14 @@
 //import 'dart:ffi';
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/routes/route_helper.dart';
+import 'package:myapp/utils/dimensions.dart';
+
+import '../../controllers/popular_product_controller.dart';
+import '../../controllers/recommended_product_controller.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,19 +22,39 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation<double> animation;
   late AnimationController controller;
 
+  Future<void> _loadResource() async {
+    await Get.find<PopularProductController>().getPopularProductList();
+    await Get.find<RecommendedProductController>().getRecommendedProductList();
+  }
+
   @override
   void initState() {
     super.initState();
+    _loadResource();
     controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+        AnimationController(vsync: this, duration: const Duration(seconds: 2))
+          ..forward();
     animation = CurvedAnimation(parent: controller, curve: Curves.linear);
+    Timer(const Duration(seconds: 3),
+        () => Get.offNamed(RouteHelper.getInitial()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
-        children: [Image.asset("assets/Logo1.png")],
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ScaleTransition(
+              scale: animation,
+              child: Center(child: Image.asset("assets/Logo1.png"))),
+          Center(
+              child: Image.asset(
+            "assets/Logo1.png",
+            width: Dimensions.splashImg,
+          )),
+        ],
       ),
     );
   }
