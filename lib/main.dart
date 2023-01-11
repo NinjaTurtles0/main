@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'UTMFood',
-      home: FoodPageBody(),
-      //initialRoute: RouteHelper.getInitial(),
+      //home: FoodPageBody(),
+      initialRoute: RouteHelper.getInitial(),
       getPages: RouteHelper.routes,
     );
   }

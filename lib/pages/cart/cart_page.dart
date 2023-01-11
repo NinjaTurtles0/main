@@ -91,8 +91,7 @@ class CartPage extends StatelessWidget {
                                               RouteHelper.getPopularFood(
                                                   popularIndex, "cartpage"));
                                         } else {
-                                          var recommendedIndex = Get.find<
-                                                  RecommendedProductController>()
+                                          var recommendedIndex = Get.find<RecommendedProductController>()
                                               .recommendedProductList
                                               .indexOf(
                                                   _cartList[index].product!);
@@ -110,11 +109,10 @@ class CartPage extends StatelessWidget {
                                         decoration: BoxDecoration(
                                             image: DecorationImage(
                                                 fit: BoxFit.cover,
-                                                image: NetworkImage(AppConstants
-                                                        .BASE_URL +
+                                                image: NetworkImage(
+                                                    AppConstants.BASE_URL +
                                                     AppConstants.UPLOAD_URL +
-                                                    CartController
-                                                        .getItems[index].img!)),
+                                                    CartController.getItems[index].img!)),
                                             borderRadius: BorderRadius.circular(
                                                 Dimensions.radius20),
                                             color: Colors.white),
@@ -133,8 +131,7 @@ class CartPage extends StatelessWidget {
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 Bigtext(
-                                                  text: CartController
-                                                      .getItems[index].name!,
+                                                  text: CartController.getItems[index].name!,
                                                   color: Colors.black54,
                                                 ),
                                                 SmallText(text: "Spicy"),
@@ -144,9 +141,7 @@ class CartPage extends StatelessWidget {
                                                           .spaceBetween,
                                                   children: [
                                                     Bigtext(
-                                                      text: CartController
-                                                          .getItems[index].price
-                                                          .toString(),
+                                                      text: CartController.getItems[index].price.toString(),
                                                       color: Colors.redAccent,
                                                     ),
                                                     Container(
@@ -162,18 +157,13 @@ class CartPage extends StatelessWidget {
                                                       decoration: BoxDecoration(
                                                           borderRadius:
                                                               BorderRadius.circular(
-                                                                  Dimensions
-                                                                      .radius20),
+                                                                  Dimensions.radius20),
                                                           color: Colors.white),
                                                       child: Row(
                                                         children: [
                                                           GestureDetector(
                                                             onTap: () {
-                                                              CartController.addItem(
-                                                                  _cartList[
-                                                                          index]
-                                                                      .product!,
-                                                                  -1);
+                                                              CartController.addItem(_cartList[index].product!,-1);
                                                             },
                                                             child: Icon(
                                                               Icons.remove,
@@ -181,21 +171,9 @@ class CartPage extends StatelessWidget {
                                                                   0xFFCDDC39),
                                                             ),
                                                           ),
-                                                          SizedBox(
-                                                            width: Dimensions
-                                                                    .width10 /
-                                                                2,
-                                                          ),
-                                                          Bigtext(
-                                                              text: _cartList[
-                                                                      index]
-                                                                  .quantity
-                                                                  .toString()), //popularProduct.inCartItems.toString()),
-                                                          SizedBox(
-                                                            width: Dimensions
-                                                                    .width10 /
-                                                                2,
-                                                          ),
+                                                          SizedBox(width: Dimensions.width10/2,),
+                                                          Bigtext(text: _cartList[index].quantity.toString()), //popularProduct.inCartItems.toString()),
+                                                          SizedBox(width: Dimensions.width10/2,),
                                                           GestureDetector(
                                                             onTap: () {
                                                               CartController.addItem(
