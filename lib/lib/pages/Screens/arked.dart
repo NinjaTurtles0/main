@@ -47,10 +47,10 @@ class _ArkedState extends State<Arked> {
         Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
-            hexStringToColor("E97777"),
-            hexStringToColor("FF9F9F"),
-            hexStringToColor("FCDDB0")
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+                hexStringToColor("E97777"),
+                hexStringToColor("FF9F9F"),
+                hexStringToColor("FCDDB0")
+              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: PageView.builder(
               controller: pageController,
               itemCount: 5,
@@ -180,7 +180,7 @@ class _ArkedState extends State<Arked> {
                       : const Color(0xFFFF8A65),
                 ),
                 overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                  (Set<MaterialState> states) {
+                      (Set<MaterialState> states) {
                     if (states.contains(MaterialState.hovered))
                       return const Color(0xFFFFAB91); //<-- SEE HERE
                     return null; // Defer to the widget's default.

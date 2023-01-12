@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../pages/cart/cart_page.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/expandable.dart';
-import 'package:get/get.dart';
 import '../../routes/route_helper.dart';
 import '../../models/products_model.dart';
 import '../../routes/route_helper.dart';

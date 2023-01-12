@@ -114,8 +114,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           //recommended food
           //
           //list of food and images
-          GetBuilder<RecommendedProductController>(
-              builder: (recommendedProduct) {
+          GetBuilder<RecommendedProductController>(builder: (recommendedProduct) {
             return recommendedProduct.isLoaded
                 ? ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
@@ -158,10 +157,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                     //width: 200,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(
-                                            Dimensions.radius20),
-                                        bottomRight: Radius.circular(
-                                            Dimensions.radius20),
+                                        topRight:
+                                            Radius.circular(Dimensions.radius20),
+                                        bottomRight:
+                                            Radius.circular(Dimensions.radius20),
                                       ),
                                       color: Colors.white,
                                     ),

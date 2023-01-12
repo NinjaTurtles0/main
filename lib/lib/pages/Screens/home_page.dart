@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:myapp/pages/Screens/main_food_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+
   // late PersistentTabController _controller;
 
   List pages = [
@@ -20,11 +21,13 @@ class _HomePageState extends State<HomePage> {
     Container(child: Center(child: Text("Next next page"))),
     Container(child: Center(child: Text("Next next next page"))),
   ];
+
   void onTapNav(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
 /*
   @override
   void initState() {
@@ -47,28 +50,29 @@ class _HomePageState extends State<HomePage> {
         onTap: onTapNav,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-            ),
-            //title:  Text("home")
+              icon: Icon(
+                Icons.home_outlined,
+              ),
+              label: "home" //changed title to label
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.archive,
-            ),
-            //title: Text("history")
+              icon: Icon(
+                Icons.archive,
+              ),
+              label: "history" //changed title to label
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_cart,
-            ),
-            //   title:  Text("cart")
+              icon: Icon(
+                Icons.shopping_cart,
+              ),
+              label: "cart" //changed title to label
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-            ),
-          ) //    title: Text("me")),
+              icon: Icon(
+                Icons.person,
+              ),
+              label: "me" //changed title to label
+          ),
         ],
       ),
     );
@@ -82,7 +86,7 @@ class _HomePageState extends State<HomePage> {
       Container(child: Center(child: Text("Next next next page"))),
     ];
   }
-/*
+
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
@@ -99,7 +103,7 @@ class _HomePageState extends State<HomePage> {
       ),
     ];
   }
-  */
+
 /*
   @override
   Widget build(BuildContext context) {
@@ -136,5 +140,6 @@ class _HomePageState extends State<HomePage> {
       navBarStyle:
           NavBarStyle.style1, // Choose the nav bar style with this property.
     );
-  } */
+  }
+*/
 }
